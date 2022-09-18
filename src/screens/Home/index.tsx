@@ -1,12 +1,38 @@
-import { View, Image , FlatList} from 'react-native';
+import { Image , FlatList} from 'react-native';
+
 import logoImg  from '../../assets/logo-nlw-esports.png';
-import { GameCard } from '../../components/GameCard';
+
+import { GameCard ,GameCardPros} from '../../components/GameCard';
 import { Heading } from '../../components/Heading';
+
 import { styles } from './styles';
-import { GAMES } from '../../utils/games';
+import React, { useEffect, useState } from 'react';
+
+import { SafeAreaView} from 'react-native-safe-area-context';
+import { Background } from '../../components/background';
+import { useNavigation } from '@react-navigation/native';
+
 export function Home() {
+
+  const [games, setGames] = useState<GameCardPros>([]); 
+
+  
+  const navigation = useNavigation();
+  function handleOpenGame ({id, title, bannerURL}:GameCardPros ){
+    navigation.navigate("game", {id, title, bannerURL});
+  }
+  useEffect(() => {
+    fetch('http://192.168.0.112:3333/games')
+    .then(response => response.json())
+    .then(data => {setGames(data)})
+  },[])
+
+
+
+
   return (
-    <View style={styles.container}>
+    <Background>
+    <SafeAreaView style={styles.container}>
 
       <Image 
       source={logoImg}
@@ -16,12 +42,14 @@ export function Home() {
       title="Encontre seu duo!"
       subtitle="Selecione o game que deseja jogar..."
       />
+
       <FlatList
-        data={GAMES}
+        data={games}
         keyExtractor={item => item.id}
         renderItem={({item}) => (
-              <GameCard
+        <GameCard
             data={item}
+            onPress={() => handleOpenGame(item)}
           />
         )}
         showsHorizontalScrollIndicator={false}
@@ -30,6 +58,7 @@ export function Home() {
       />
 
       
-    </View>
+    </SafeAreaView>
+    </Background>
   );
 }

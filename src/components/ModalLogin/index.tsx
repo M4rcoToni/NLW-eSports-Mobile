@@ -5,12 +5,12 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { styles } from './styles';
 import { THEME } from '../../theme';
 
-interface Props extends ModalProps{
+export interface ModalLoginProps extends ModalProps{
     onClose: ()=> void;
-    name: string;
+    username: string;
     photo: string;
 }
-export function ModalLogin({ onClose, name, photo, ...rest }: Props) {
+export function ModalLogin({ onClose, username, photo, ...rest }: ModalLoginProps) {
     return (
             <Modal 
                 animationType='fade'

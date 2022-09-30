@@ -4,9 +4,11 @@ import * as AuthSession from 'expo-auth-session';
 
 import { styles } from './styles';
 import { ModalLogin, ModalLoginProps } from '../ModalLogin';
+import { GAMES } from '../../utils/games';
 
 export function LoginButton() {
-    const [DiscordInfos, setDiscordInfos] = useState<ModalLoginProps[]>();
+    const [discordInfos, setdiscordInfos] = useState<ModalLoginProps>();
+
     const [modalVisible, setModalVisible] = useState(false);
     async function handleDiscordSignin() {
         const response = await AuthSession.startAsync({
@@ -18,11 +20,13 @@ export function LoginButton() {
                 'authorization': `Bearer ${response.params.access_token}`
             }
         }).then(response => response.json())
-        .then(data => {setDiscordInfos(data)});
-
-        console.log(response);
+        .then(data => { 
+            
+                setdiscordInfos( data);
+        });
         
-        console.log(JSON.stringify(DiscordInfos));
+        console.log(discordInfos);
+        
         if (response.type == 'success') {
             setModalVisible(!modalVisible)
         } 
@@ -35,12 +39,13 @@ export function LoginButton() {
         style={styles.container}
         onPress={handleDiscordSignin}
     >
-        <ModalLogin
+        {/* <ModalLogin
                 visible={modalVisible}
                 onClose={() => setModalVisible(!modalVisible)} 
-                />
+                
+                /> */}
         <Text style={styles.buttonTitle}>
-            Entrar com Discord
+            Entrar com Discord{}
         </Text>
     </TouchableOpacity>
   );

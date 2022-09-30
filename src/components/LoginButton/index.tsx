@@ -32,7 +32,6 @@ export function LoginButton() {
         } 
     }
     
-
    
   return (
     <TouchableOpacity 
@@ -40,9 +39,9 @@ export function LoginButton() {
         onPress={handleDiscordSignin}
     >
         {/* <ModalLogin
-                visible={modalVisible}
-                onClose={() => setModalVisible(!modalVisible)} 
-                
+              visible={modalVisible}
+              onClose={() => setModalVisible(!modalVisible)} 
+               data={discordInfos}                
                 /> */}
         <Text style={styles.buttonTitle}>
             Entrar com Discord{}

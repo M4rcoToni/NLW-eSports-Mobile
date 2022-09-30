@@ -6,15 +6,17 @@ import { styles } from './styles';
 import { THEME } from '../../theme';
 
 export interface ModalLoginProps extends ModalProps{
-    onClose: ()=> void;
-    data:{
-        username:string;
-        discriminator:string;
-    }
+    username:string;
+    discriminator:string;
+    avatar:string;
+    id:string;
 }
-export function ModalLogin({ onClose,  data,...rest }: ModalLoginProps) {
-
-
+interface Props{
+    visible: boolean;
+    data: ModalLoginProps;
+    onClose: ()=> void;
+}
+export function ModalLogin({ onClose,  data,...rest }: Props) {
 
     return (
             <Modal 
@@ -36,9 +38,9 @@ export function ModalLogin({ onClose,  data,...rest }: ModalLoginProps) {
                             />
                         </TouchableOpacity>
 
-                        {/* <Image
+                        <Image
                             source={{uri: data.avatar}}
-                        /> */}
+                        />
                         <Text style={styles.label}>
                             Seja bem vindo!
                         </Text>

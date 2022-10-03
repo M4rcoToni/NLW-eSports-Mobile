@@ -8,12 +8,16 @@ export const styles = StyleSheet.create({
   logo:{
     width: 214,
     height:120,
-    marginTop: 74,
+    marginTop: 16,
     marginBottom:48
   },
   contentList:{
     paddingLeft:32,
     paddingRight:64,
+  },
+  header:{
+    paddingHorizontal: 20,
+    marginTop: 20,
+    justifyContent: 'space-between'
   }
-  
 });

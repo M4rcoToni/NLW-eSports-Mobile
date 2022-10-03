@@ -5,16 +5,15 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    padding: 32
   },
   logo:{
     width: 214,
     height:120,
-    marginTop: 74,
+    marginTop: 148,
     marginBottom:48
   },
   button:{
-    width: '100%',
+    width: '50%',
     height:36,
     borderRadius:6,
     backgroundColor:THEME.COLORS.PRIMARY,

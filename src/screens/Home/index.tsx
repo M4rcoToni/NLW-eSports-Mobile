@@ -18,7 +18,7 @@ export function Home() {
 
   
   const navigation = useNavigation();
-  function handleOpenGame ({id, title, bannerURL}:GameCardPros ){
+  async function handleOpenGame ({id, title, bannerURL}:GameCardPros ){
     navigation.navigate("game", {id, title, bannerURL});
   }
   useEffect(() => {
@@ -26,8 +26,6 @@ export function Home() {
     .then(response => response.json())
     .then(data => {setGames(data)})
   },[])
-
-
 
 
   return (

@@ -4,20 +4,20 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 import { styles } from './styles';
 import { THEME } from '../../theme';
+import { useNavigation } from '@react-navigation/native';
 
 export interface ModalLoginProps extends ModalProps{
-    username:string;
+    username: string;
     discriminator:string;
     avatar:string;
     id:string;
-}
-interface Props{
-    visible: boolean;
-    data: ModalLoginProps;
     onClose: ()=> void;
 }
-export function ModalLogin({ onClose,  data,...rest }: Props) {
-
+export function ModalLogin({ onClose, username, discriminator , avatar , id,...rest }: ModalLoginProps) {
+    const navigation = useNavigation();
+    function handleOpenHome (){
+      navigation.navigate('game');
+    }
     return (
             <Modal 
                 animationType='fade'
@@ -27,6 +27,8 @@ export function ModalLogin({ onClose,  data,...rest }: Props) {
             >
                 <View style={styles.container}>
                     <View style={styles.content}>
+
+                        
                         <TouchableOpacity
                             style={styles.closeIcon}
                             onPress={onClose}
@@ -37,20 +39,24 @@ export function ModalLogin({ onClose,  data,...rest }: Props) {
                                 color={THEME.COLORS.CAPTION_500}
                             />
                         </TouchableOpacity>
-
-                        <Image
-                            source={{uri: data.avatar}}
-                        />
                         <Text style={styles.label}>
-                            Seja bem vindo!
+                                Seja bem vindo!
                         </Text>
-                        <Text>
-                            {data.username}#{data.discriminator}
+                        <Image style={styles.fotologo}
+                            source={{uri: `https://cdn.discordapp.com/avatars/${id}/${avatar}.png`}}
+                        />
+                        
+                        <Text style={styles.username}>
+                            {username}#{discriminator}
                         </Text>
 
                         <TouchableOpacity 
-                            style={styles.button}
+                            style={styles.btnhome}
+                            onPress={handleOpenHome}
                             >
+                            <Text style={styles.buttonTitle}>
+                                Continuar
+                            </Text>
                         </TouchableOpacity>
 
                     </View>

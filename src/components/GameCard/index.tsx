@@ -24,7 +24,7 @@ export function GameCard({data, ...rest}: Props) {
     <TouchableOpacity style={styles.container} {...rest}>
         <ImageBackground
             style={styles.cover}
-            source={{uri :data.bannerURL}}
+            source={{uri : data.bannerURL}}
         >
 
         <LinearGradient

@@ -10,6 +10,7 @@ export declare global{
         interface RootParamlist{
             home: undefined;
             game: GameParams;
+            signin: undefined;
         }
     }
 }

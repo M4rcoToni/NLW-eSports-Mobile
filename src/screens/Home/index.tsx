@@ -26,7 +26,7 @@ export function Home() {
     navigation.navigate("game", {id, title, bannerURL});
   }
   useEffect(() => {
-    fetch('http://192.168.42.42:3333/games') // alterar o ip para o do seu computador
+    fetch('http://192.168.0.102:3333/games') // alterar o ip para o do seu computador
     .then(response => response.json())
     .then(data => {setGames(data)})
   },[])

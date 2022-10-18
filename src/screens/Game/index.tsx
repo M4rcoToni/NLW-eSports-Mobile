@@ -30,13 +30,13 @@ export function Game() {
   navigation.goBack();
   }
  async function getDiscordUser(adsId: string) {
-  fetch(`http://192.168.42.42:3333/ads/${adsId}/discord`)  // alterar o ip para o do seu computador
+  fetch(`http://192.168.0.102:3333/ads/${adsId}/discord`)  // alterar o ip para o do seu computador
     .then(response => response.json())
     .then(data => {setDiscordDuoSelected(data.discord)})
  }
 
   useEffect(() => {
-    fetch(`http://192.168.42.42:3333/games/${game.id}/ads`)  // alterar o ip para o do seu computador
+    fetch(`http://192.168.0.102:3333/games/${game.id}/ads`)  // alterar o ip para o do seu computador
     .then(response => response.json())
     .then(data => {setDuos(data)})
   },[])

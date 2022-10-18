@@ -4,7 +4,6 @@ import * as AuthSession from 'expo-auth-session';
 
 import { styles } from './styles';
 import { ModalLogin, ModalLoginProps } from '../ModalLogin';
-import { GAMES } from '../../utils/games';
 
 export function LoginButton() {
     const [discordInfos, setdiscordInfos] = useState<ModalLoginProps>();
@@ -15,19 +14,17 @@ export function LoginButton() {
             authUrl: 'https://discord.com/api/oauth2/authorize?client_id=1024387203952037889&redirect_uri=https%3A%2F%2Fauth.expo.io%2F%40m4rcotoni%2Fnlw-esports&response_type=token&scope=identify'
 
         });
+        const token = response.params.access_token;
         fetch('https://discord.com/api/users/@me', {
             headers:{
-                'authorization': `Bearer ${response.params.access_token}`
+                'authorization': `Bearer ${token}`
             }
         }).then(response => response.json())
         .then(data => { 
-            
-                setdiscordInfos( data);
+            setdiscordInfos( data);
         });
-        
-        console.log(discordInfos);
-        
-        if (response.type == 'success') {
+
+        if (token != undefined) {
             setModalVisible(!modalVisible)
         } 
     }

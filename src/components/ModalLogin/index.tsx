@@ -17,7 +17,8 @@ export interface ModalLoginProps extends ModalProps {
 export function ModalLogin({ onClose, username, discriminator, avatar, id, ...rest }: ModalLoginProps) {
     const navigation = useNavigation();
 
-    function handleOpenHome() {
+    function handleOpenHome() { 
+        onClose();
         navigation.navigate('home');
     }
 

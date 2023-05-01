@@ -11,7 +11,11 @@ Meu primeiro projeto feito com Expo, utilizando TypeScript e React Native, o con
 
 Para do rodar o projeto, utilze o node na pasta:
 
-### `npm start`
+
+```bash
+$ npm install
+$ npx expo start
+```
 
 ## Tour Completo
 

@@ -26,3 +26,7 @@ Encontre seu duo e Bora Jogar!
 ## Figma do Projeto
 
 ![Figma](/.github/img/nlw-mobile-figma.png)
+
+<br></br>
+
+Projeto desenvolvido com 🖤 por [M4rcotoni](https://github.com/m4rcotoni)

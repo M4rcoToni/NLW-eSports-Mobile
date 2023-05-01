@@ -27,6 +27,9 @@ Encontre seu duo e Bora Jogar!
 
 ![Figma](/.github/img/nlw-mobile-figma.png)
 
+## Licença
+
+Este projeto está licenciado sob a Licença MIT.
 <br></br>
 
 Projeto desenvolvido com 🖤 por [M4rcotoni](https://github.com/m4rcotoni)
